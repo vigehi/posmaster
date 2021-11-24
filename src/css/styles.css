@@ -1,0 +1,26 @@
+.bg{
+    -fx-background-color: #0000FF;
+}
+
+.container{
+    -fx-background-color: #fff;
+    -fx-background-radius: 10px;
+}
+
+.textfield{
+    -fx-background-color: #e3e3e3;
+    -fx-background-radius: 30;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10, 0.0, 0.0, 10);
+}
+
+.btn_login{
+    -fx-background-color: #0000FF;
+    -fx-background-radius: 30;
+}

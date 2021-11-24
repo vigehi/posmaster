@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="626.0" prefWidth="1000.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sales">
+   <children>
+      <AnchorPane prefHeight="626.0" prefWidth="1000.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+         <children>
+            <AnchorPane fx:id="paneTop" prefHeight="59.0" prefWidth="994.0" style="-fx-background-color: #131022;">
+               <children>
+                  <ImageView fx:id="imgNew" fitHeight="38.0" fitWidth="34.0" layoutX="450.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/sales.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblStatus" layoutX="503.0" layoutY="17.0" text="Sales" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TabPane layoutY="59.0" prefHeight="557.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Cash Sale">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab text="Sales list">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="1000.0">
+                           <children>
+                              <TableView fx:id="table1" layoutX="211.0" layoutY="68.0" prefHeight="125.0" prefWidth="413.0">
+                                <columns>
+                                  <TableColumn fx:id="id1" prefWidth="115.0" text="Item ID" />
+                                  <TableColumn fx:id="cat1" prefWidth="186.0" text="Item Category Name" />
+                                    <TableColumn fx:id="nam1" prefWidth="109.0" text="Item Name" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="table2" layoutX="60.0" layoutY="250.0" prefHeight="125.0" prefWidth="895.0">
+                                 <columns>
+                                    <TableColumn fx:id="id2" prefWidth="79.0" text="Item ID" />
+                                    <TableColumn fx:id="cat2" prefWidth="158.0" text="Item Category Name" />
+                                    <TableColumn fx:id="nam2" prefWidth="130.0" text="Item Name" />
+                                    <TableColumn fx:id="p1" prefWidth="110.0" text="Price" />
+                                    <TableColumn fx:id="Q1" prefWidth="126.0" text="Quantity" />
+                                    <TableColumn fx:id="t1" prefWidth="109.0" text="Total" />
+                                    <TableColumn fx:id="time" prefWidth="181.0" text="Time" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="newsale" layoutX="60.0" layoutY="430.0" mnemonicParsing="false" onAction="#btns" text="New Sale">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="183.0" layoutY="404.0" text="Cash" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="183.0" layoutY="462.0" text="Mpesa" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="text2" layoutX="254.0" layoutY="401.0" />
+                              <TextField fx:id="text3" layoutX="254.0" layoutY="459.0" />
+                              <Button layoutX="466.0" layoutY="401.0" mnemonicParsing="false" text="Total">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="466.0" layoutY="459.0" mnemonicParsing="false" text="Change">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <TextField layoutX="550.0" layoutY="401.0" />
+                              <TextField layoutX="550.0" layoutY="459.0" />
+                              <Separator layoutX="747.0" layoutY="390.0" orientation="VERTICAL" prefHeight="117.0" prefWidth="6.0" />
+                              <Button fx:id="btn" layoutX="761.0" layoutY="392.0" mnemonicParsing="false" onAction="#btn1" text="1000">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="813.0" layoutY="392.0" mnemonicParsing="false" text="500">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="860.0" layoutY="392.0" mnemonicParsing="false" text="200">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="761.0" layoutY="430.0" mnemonicParsing="false" text="100">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="813.0" layoutY="430.0" mnemonicParsing="false" text="50">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="860.0" layoutY="430.0" mnemonicParsing="false" text="20">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="761.0" layoutY="469.0" mnemonicParsing="false" text="10">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="813.0" layoutY="469.0" mnemonicParsing="false" text="5">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="860.0" layoutY="472.0" mnemonicParsing="false" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="262.0" layoutY="25.0" text="Search Items" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="text1" layoutX="414.0" layoutY="22.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <Separator orientation="VERTICAL" prefHeight="200.0" />
+   </children>
+</AnchorPane>

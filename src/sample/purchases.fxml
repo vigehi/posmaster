@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="626.0" prefWidth="1000.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DesktopUI">
+   <children>
+      <AnchorPane prefHeight="626.0" prefWidth="1000.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+         <children>
+            <AnchorPane fx:id="paneTop" prefHeight="59.0" prefWidth="994.0" style="-fx-background-color: #131022;">
+               <children>
+                  <ImageView fx:id="imgNew" fitHeight="38.0" fitWidth="34.0" layoutX="450.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/purchases.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblStatus" layoutX="503.0" layoutY="17.0" text="Purchases" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TabPane layoutY="59.0" prefHeight="557.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Cash Purchase">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="New" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="63.0" text="Trans. Date:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="108.0" text="Trans. Ref:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="155.0" text="Details:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="67.0" text="Items:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="108.0" text="Quantity:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="150.0" text="Unit Price:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="700.0" layoutY="58.0" text="Total:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="700.0" layoutY="100.0" text="Balance:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="115.0" layoutY="61.0" />
+                              <TextField layoutX="115.0" layoutY="106.0" />
+                              <TextField layoutX="115.0" layoutY="153.0" />
+                              <TextField layoutX="451.0" layoutY="106.0" />
+                              <TextField layoutX="451.0" layoutY="148.0" />
+                              <Label layoutX="801.0" layoutY="60.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="801.0" layoutY="100.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="747.0" layoutY="150.0" mnemonicParsing="false" text="Add" />
+                              <Label layoutX="408.0" layoutY="236.0" text="Cash Purchases" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TableView layoutX="75.0" layoutY="298.0" prefHeight="124.0" prefWidth="772.0">
+                                <columns>
+                                  <TableColumn prefWidth="100.0" text="Doc. No" />
+                                  <TableColumn prefWidth="100.0" text="Trns. Date" />
+                                    <TableColumn prefWidth="100.0" text="Amount" />
+                                    <TableColumn prefWidth="100.0" text="Receipt" />
+                                    <TableColumn prefWidth="100.0" text="Trans. Ref" />
+                                    <TableColumn prefWidth="100.0" text="By" />
+                                    <TableColumn prefWidth="100.0" text="Status" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="344.0" layoutY="453.0" mnemonicParsing="false" text="Delete" />
+                              <Button layoutX="488.0" layoutY="453.0" mnemonicParsing="false" text="Refresh" />
+                              <Separator layoutX="278.0" layoutY="217.0" prefHeight="5.0" prefWidth="356.0" />
+                              <ComboBox fx:id="comboItems" layoutX="443.0" layoutY="65.0" prefWidth="150.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Credit Purchase">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="1000.0">
+                           <children>
+                              <Button layoutX="793.0" layoutY="160.0" mnemonicParsing="false" text="Add" />
+                              <Label layoutX="715.0" layoutY="100.0" text="Balance:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="847.0" layoutY="100.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="164.0" text="Trans. Ref:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="20.0" layoutY="202.0" text="Details:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="358.0" layoutY="59.0" text="Items:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="358.0" layoutY="100.0" text="Quantity:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="358.0" layoutY="142.0" text="Unit Price:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="714.0" layoutY="58.0" text="Total:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="149.0" layoutY="161.0" />
+                              <TextField layoutX="149.0" layoutY="199.0" />
+                              <TextField layoutX="491.0" layoutY="98.0" />
+                              <TextField layoutX="491.0" layoutY="140.0" />
+                              <Label layoutX="847.0" layoutY="58.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="149.0" layoutY="48.0" />
+                              <TextField layoutX="149.0" layoutY="85.0" />
+                              <TextField layoutX="149.0" layoutY="127.0" />
+                              <ComboBox fx:id="comboItems" layoutX="492.0" layoutY="56.0" prefWidth="150.0" />
+                              <Label layoutX="451.0" layoutY="280.0" text="Credit Purchase" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="14.0" text="New" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="51.0" text="Customer Name:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="88.0" text="Purchase Payment:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="128.0" text="Trans. Date:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TableView layoutX="88.0" layoutY="323.0" prefHeight="124.0" prefWidth="772.0">
+                                 <columns>
+                                    <TableColumn prefWidth="100.0" text="Doc. No" />
+                                    <TableColumn prefWidth="100.0" text="Trns. Date" />
+                                    <TableColumn prefWidth="100.0" text="Amount" />
+                                    <TableColumn prefWidth="100.0" text="Receipt" />
+                                    <TableColumn prefWidth="100.0" text="Trans. Ref" />
+                                    <TableColumn prefWidth="100.0" text="By" />
+                                    <TableColumn prefWidth="100.0" text="Status" />
+                                 </columns>
+                              </TableView>
+                              <Separator layoutX="301.0" layoutY="259.0" prefHeight="4.0" prefWidth="380.0" />
+                              <Button layoutX="410.0" layoutY="470.0" mnemonicParsing="false" text="Delete" />
+                              <Button layoutX="557.0" layoutY="470.0" mnemonicParsing="false" text="Refresh" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
