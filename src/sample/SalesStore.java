@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import org.json.JSONException;
@@ -11,97 +12,64 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SalesStore {
-    private SimpleStringProperty item1;
-    private SimpleStringProperty category1;
-    private SimpleStringProperty name1;
-    private SimpleStringProperty sale1;
-    private SimpleStringProperty purchase;
-    private SimpleStringProperty active1;
-    private SimpleStringProperty Q1;
-    private SimpleStringProperty fill;
+    private SimpleStringProperty category;
+    private SimpleStringProperty id;
+    private SimpleStringProperty name;
+    private SimpleStringProperty quantity;
+    private SimpleStringProperty unitPrice;
     private SimpleStringProperty time;
+    private SimpleIntegerProperty totalPrice;
 
-    private ObservableList<saleitem> tableData;
-
-
-    public SalesStore( String categoryName, String itemId, String item, String salesPrice, String purchase, String itemName, String inventory) {
-        this.item1 = new SimpleStringProperty("true");
-        this.category1 = new SimpleStringProperty(categoryName);
-        this.name1 = new SimpleStringProperty(itemId);
-        this.sale1 = new SimpleStringProperty(item);
-        this.purchase = new SimpleStringProperty(salesPrice);
-        this.active1 = new SimpleStringProperty(purchase);
-        this.fill = new SimpleStringProperty(itemName);
-        this.Q1 = new SimpleStringProperty(inventory);
+    public SalesStore(String category, String id, String unitPrice, String name, String quantity, String time, int totalPrice){
+        this.category = new SimpleStringProperty(category);
+        this.id = new SimpleStringProperty(id);
+        this.unitPrice = new SimpleStringProperty(unitPrice);
+        this.name = new SimpleStringProperty(name);
+        this.quantity = new SimpleStringProperty(quantity);
+        this.time     = new SimpleStringProperty(time);
+        this.totalPrice= new SimpleIntegerProperty(totalPrice);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm ss");
         this.time = new SimpleStringProperty(dateFormat.format(new Date()));
 
-
     }
 
-    public String getActive() {
-        return active1.get();
+
+
+    public String getCategory() {
+        return category.get();
     }
 
-    public void setActive(String active) {
-        this.active1 = new SimpleStringProperty(active);
+    public void setCategory(String category) {
+        this.category = new SimpleStringProperty(category);
     }
 
-    public String getCategoryName() {
-        return category1.get();
+    public String getId() {
+        return id.get();
     }
 
-    public void setCategoryName(String categoryName) {
-        this.category1 = new SimpleStringProperty(categoryName);
+    public void setId(String id) {
+        this.id = new SimpleStringProperty(id);
     }
 
-    public String getItemId() {
-        return item1.get();
+    public String getUnitPrice() {
+        return unitPrice.get();
     }
 
-    public void setItemId(String itemId) {
-        this.item1 = new SimpleStringProperty(itemId);
+    public void setUnitPrice(String unitPrice) {
+        this.unitPrice = new SimpleStringProperty(unitPrice);
     }
 
-    public String getItem() {
-        return name1.get();
+    public String getName() {
+        return name.get();
     }
 
-    public void setItem(String item) {
-        this.name1 = new SimpleStringProperty(item);
+    public void setName(String name) {
+        this.name = new SimpleStringProperty(name);
     }
 
-    public String getSalesPrice() {
-        return sale1.get();
-    }
+    public String getQuantity(){return quantity.get();}
 
-    public void setSalesPrice(String salesPrice) {
-        this.sale1 = new SimpleStringProperty(salesPrice);
-    }
-
-    public String getPurchase() {
-        return purchase.get();
-    }
-
-    public void setPurchase(String purchase) {
-        this.purchase = new SimpleStringProperty(purchase);
-    }
-
-    public String getItemName() {
-        return fill.get();
-    }
-
-    public void setItemName(String itemName) {
-        this.fill = new SimpleStringProperty(itemName);
-    }
-
-    public String getInventory() {
-        return Q1.get();
-    }
-
-    public void setInventory(String inventory) {
-        this.Q1 = new SimpleStringProperty(inventory);
-    }
+    public void setQuantity(String quantity){this.quantity = new SimpleStringProperty(quantity);}
 
 
     public String getTime() {
@@ -115,4 +83,8 @@ public class SalesStore {
     public void setTime(String time) {
         this.time.set(time);
     }
+
+    public int getTotalPrice(){return totalPrice.get();}
+
+    public void setTotalPrice(int totalPrice){this.totalPrice = new SimpleIntegerProperty(totalPrice);}
 }

@@ -51,41 +51,30 @@ public class Controller implements Initializable {
     @FXML
     private BorderPane mainPane;
 
-    JSONArray jaItems = null;
 
     @FXML
     void btn_click(ActionEvent event) throws IOException, JSONException {
         auth();
-
-
     }
+
+    // initializing public variables
+    JSONArray jaItems = null;
+    String sItems;
+    String url = "https://demo.dewcis.com/hcm/pos_server";
+    String token = null;
 
     public void auth() throws IOException, JSONException {
         String userName = txt_email.getText();
         String password = txt_password.getText();
 
-        String url = "https://demo.dewcis.com/hcm/pos_server";
-
-        String sResp = webComm.auth(url,userName, password);
-        JSONObject jResp = new JSONObject(sResp);
+        String token = webComm.auth(url, userName, password);
+        /*JSONObject jResp = new JSONObject(token);
         int ResultCode = jResp.getInt("ResultCode");
-        if(jResp.has("ResultCode") && (jResp.getInt("ResultCode") == 0)) {
-            String auth = jResp.getString("access_token");
-            System.out.println("Authenticated : " + auth);
-
-            String sItems = sendData(url + "?view=405:0", auth, "read", "{}");
-            System.out.println("Items : " + sItems);
-            JSONObject jItems = new JSONObject(sItems);
-            if(jItems.has("data")) {
-                jaItems = jItems.getJSONArray("data");
-                for(int j = 0; j < jaItems.length(); j++){
-                    JSONObject jItem = jaItems.getJSONObject(j);
-                    System.out.println(jItem.getString("item_id"));
-                    System.out.println(jItem.getString("item_name"));
-                }
-            }
+        if (jResp.has("ResultCode") && (jResp.getInt("ResultCode") == 0)) {
+            token = jResp.getString("access_token");
+            System.out.println("Authenticated : " + token);*/
+        if (token != null) {
             Stage logIn = (Stage) btn_login.getScene().getWindow(); //Getting current window
-
             Stage primaryStage = new Stage();
             Parent root = null;
 
@@ -101,10 +90,26 @@ public class Controller implements Initializable {
         }
     }
 
+
+    public JSONArray getItem() throws JSONException {
+        sItems = sendData(url + "?view=405:0", token, "read", "{}");
+        System.out.println( "Items : " + sItems);
+        JSONObject jItems = new JSONObject(sItems);
+        if(jItems.has("data")) {
+            jaItems = jItems.getJSONArray("data");
+            for(int j = 0; j < jaItems.length(); j++){
+                JSONObject jItem = jaItems.getJSONObject(j);
+                System.out.println(jItem.getString("item_id"));
+                System.out.println(jItem.getString("item_name"));
+            }
+        }
+        return jaItems;
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Image img = new Image("resources/useravatar.jpg");
         circle.setFill(new ImagePattern(img));
     }
-
 }

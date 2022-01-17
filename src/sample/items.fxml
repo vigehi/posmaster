@@ -26,16 +26,16 @@
                   </Label>
                </children>
             </AnchorPane>
-            <TableView fx:id="tableview2" layoutX="78.0" layoutY="96.0" prefHeight="383.0" prefWidth="818.0">
+            <TableView fx:id="itemsView" layoutX="78.0" layoutY="96.0" prefHeight="383.0" prefWidth="818.0">
               <columns>
-                <TableColumn fx:id="item1" prefWidth="102.0" text="Item ID" />
-                  <TableColumn fx:id="category1" prefWidth="102.0" text="Item Category Name" />
-                  <TableColumn fx:id="name1" prefWidth="102.0" text="Item Name" />
-                  <TableColumn fx:id="sale1" prefWidth="102.0" text="Sales Price" />
+                <TableColumn fx:id="itemId" prefWidth="102.0" text="Item ID" />
+                  <TableColumn fx:id="categoryName" prefWidth="102.0" text="Item Category Name" />
+                  <TableColumn fx:id="itemName" prefWidth="102.0" text="Item Name" />
+                  <TableColumn fx:id="salesPrice" prefWidth="102.0" text="Sales Price" />
                   <TableColumn fx:id="purchase" prefWidth="102.0" text="Purchase Price" />
-                  <TableColumn fx:id="active1" prefWidth="102.0" text="Active" />
-                  <TableColumn fx:id="invent" prefWidth="102.0" text="Inventory" />
-                  <TableColumn fx:id="fill" prefWidth="102.0" text="Keyfield" />
+                  <TableColumn fx:id="active" prefWidth="102.0" text="Active" />
+                  <TableColumn fx:id="inventory" prefWidth="102.0" text="Inventory" />
+                  <TableColumn fx:id="keyField" prefWidth="102.0" text="Keyfield" />
               </columns>
             </TableView>
          </children>

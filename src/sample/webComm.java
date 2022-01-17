@@ -1,40 +1,47 @@
 package sample;
 
 import okhttp3.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.Base64;
 
 public class webComm  {
+    public static String auth(String myURL, String appKey, String appPass) {
+        String auth = null;
+        if(appKey == null || appPass == null) return auth;
 
-    public static String auth( String url,String userName, String password) throws IOException {
+        try {
+            String authUser = Base64.getEncoder().encodeToString(appKey.getBytes("UTF-8"));
+            String authPass = Base64.getEncoder().encodeToString(appPass.getBytes("UTF-8"));
+            System.out.println("Base64 Encode Username and password : " + authUser + " : " + authPass);
 
-        String authUser = Base64.getEncoder().encodeToString(userName.getBytes("UTF-8"));
-        String authPass = Base64.getEncoder().encodeToString(password.getBytes("UTF-8"));
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url(myURL)
+                    .get()
+                    .addHeader("action", "authorization")
+                    .addHeader("authUser", authUser)
+                    .addHeader("authPass", authPass)
+                    .addHeader("cache-control", "no-cache")
+                    .build();
+            Response response = client.newCall(request).execute();
+            String rBody = response.body().string();
 
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        MediaType mediaType = MediaType.parse("text/plain");
-        RequestBody body = RequestBody.create(mediaType, "");
-        Request request = new Request.Builder()
-                //this is just a test endpoint to make sure that the login actually works
-                .url(url)
-                .method("POST", body)
-                .addHeader("Accept", "application/json")
-                .addHeader("action", "authorization")
-                .addHeader("authUser", authUser)
-                .addHeader("authPass", authPass)
-                .build();
-
-        String resp = null;
-        try (Response response = client.newCall(request).execute()) {
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-
-            resp = response.body().string();
-
-            System.out.println(resp);
+            JSONObject jResp = new JSONObject(rBody);
+            int ResultCode = jResp.getInt("ResultCode");
+            if(jResp.has("ResultCode") && (jResp.getInt("ResultCode") == 0)) {
+                auth = jResp.getString("access_token");
+                System.out.println("Authenticated : " + auth);
+            } else {
+                System.out.println("Not Authenticated");
+            }
+        } catch(IOException | JSONException ex) {
+            System.out.println("IO Error : " + ex);
         }
 
-        return resp;
+        return auth;
     }
 
     public static String sendData(String myURL, String auth, String action, String data) {
@@ -76,5 +83,4 @@ public class webComm  {
 
         return resp;
     }
-
 }

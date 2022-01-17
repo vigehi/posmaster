@@ -92,7 +92,7 @@ public class DashboardController {
         FXML_URL.put("Dashboard", "/main/resources/view/login.fxml");
         FXML_URL.put("Items", "/main/resources/view/inventory.fxml");
         FXML_URL.put("Customers", "/main/resources/view/customer.fxml");
-        FXML_URL.put("Dashboard", "/main/resources/view/dashboard.fxml");
+        FXML_URL.put("Dashboard", "/main/resources/view/cashpurchases.fxml");
         FXML_URL.put("Sells", "/main/resources/view/sells.fxml");
         FXML_URL.put("Rentals", "/main/resources/view/rentals.fxml");
         FXML_URL.put("Accounts", "/main/resources/view/accounts.fxml");
